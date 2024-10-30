@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+    <div class="homepage" id="home">
+        <header>
+    <div class="nav">
+        <img src="images/logo.PNG" alt="Logo">
+        <ul id="sideMenu">
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#project">PROJECTS</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+            <i id="ts" class="fa-solid fa-times" onclick="closemenu()"></i>
+        </ul>
+        <i id="bs" class="fa-solid fa-bars" onclick="openmenu()"></i>
+    </div>
+        </header>
+    <div class="container">
+        <img src="images/me2.jpg">
+        <p class="text">
+            <span class="line">Hi, Myself</span><br>
+            <span class="line highlight">Alishba Siraj</span><br>
+            <span class="line">And I'm a Front-end Developer</span>
+        </p>
+    </div>
+    </div>
+    <div class="separation1"></div>
+
+    <div class="aboutpage" id="about">
+        <h1>GET TO KNOW ME!</h1>
+        <p>Hey! My name is Alishba Siraj and I'm a dedicated Computer Science student currently in 5th semester, driven by my passion for technology and programming.
+
+            Currently, Im deeply engaged in front-end development and enjoy creating projects that bring ideas to life. My education and hands-on projects have provided me with a solid foundation in software development and problem-solving.
+            
+            Im excited about applying my skills to real-world challenges and contributing to innovative technological solutions. Im eager to connect with professionals and fellow students in the tech community. Whether its through collaboration on projects, sharing insights, or exploring new opportunities, I look forward to what we can achieve together.</p></div>
+                <h1 class="skillsheading">SKILLS</h1>
+              <div class="skills">
+                <div title="HTML" class="card">
+                    <img src="images/html.png">
+                </div>
+                <div title="CSS" class="card">
+                    <img src="images/css.png">
+                </div>
+                <div title="Java Script" class="card">
+                    <img src="images/js.png">
+                </div>
+                <div title="React" class="card">
+                    <img src="images/react.png">
+                </div>
+                <div title="C++" class="card">
+                    <img src="images/c++ (1).png">
+                </div>
+                <div title="SQL" class="card">
+                    <img src="images/sql.png">
+                </div>
+            </div>
+            <div class="separation2"></div>
+
+            <div class="projects" id="project">
+               <div class="projectslist">
+                <div title="p1" class="card">
+                    <h1>Hospital Management System</h1>
+                </div>
+                <div title="p2" class="card">
+                    <h1>Beauty Parlor Management System</h1>
+                </div>
+                <div title="p3" class="card">
+                    <h1>Color Sorting Game</h1>
+                </div>
+                <div title="p4" class="card">
+                    <h1>Restaurant Management System</h1>
+                </div>
+                <div title="p5" class="card">
+                    <h1>Fit Fusion Gym Website</h1>
+                </div>
+            </div>
+            </div>
+            <div class="separation3"></div>
+
+            <div class="contact" id="contact">
+                <h2>CONTACT ME</h2>
+                <div class="contact-info">
+                <img class="m1" src="images/mail2.png">
+                <p class="cmail">alishbasiraj90@gmail.com</p>
+                </div>
+                <div class="contact-info">
+               <img class="p1" src="images/phone.png">
+                <p class="cno">0334234567</p>
+                </div>
+                <div class="container2">
+                    <a href="https://www.instagram.com/__alishbaa/" target="_blank">
+                    <img id="insta" src="images/insta2.png">
+                    </a>
+                    <a href="https://www.linkedin.com/in/alishba-siraj-93806b2b5/" target="_blank">
+                    <img id="link" src="images/link.png">
+                    </a>
+                    <a href="mailto:alishbasiraj90@gmail.com">
+                    <img id="gmail" src="images/gmail2.png">
+                    </a>
+                </div>
+               
+            <div class="contact-form">
+                <form name ="submit-to-google-sheet" action="#">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea class="msg" name="message" placeholder="Your Message" required></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+                <span id="msg2"></span>
+            </div>
+            </div>
+
+            <script>
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbyiHYpG1hS9TTP7Qu6r4P6dSgBNQabr4hCretatU_AmivNAFcx7D6IDXQaUPeYBTncjrA/exec';
+                const form = document.forms['submit-to-google-sheet'];
+                const msg = document.getElementById("msg2");
+        
+                form.addEventListener('submit', e => {
+                    e.preventDefault();
+                    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                        .then(response => {
+                            msg.innerHTML = "Message sent successfully!";
+                            msg.style.color = "green";
+                            setTimeout(function(){
+                                msg.innerHTML = "";
+                            }, 5000);
+                            form.reset();
+                        })
+                        .catch(error => {
+                            msg.innerHTML = "Error sending message!";
+                            msg.style.color = "red";
+                        });
+                });
+                document.querySelector('.fa-bars').addEventListener('click', function() {
+    document.querySelector('.nav ul').style.display = 'block';
+    this.style.display = 'none';
+    document.querySelector('.fa-times').style.display = 'block';
+});
+
+document.querySelector('.fa-times').addEventListener('click', function() {
+    document.querySelector('.nav ul').style.display = 'none';
+    this.style.display = 'none';
+    document.querySelector('.fa-bars').style.display = 'block';
+});
+</script>
+<script>
+var sidemenu = document.getElementById("sideMenu");
+const navLinks = document.querySelectorAll("#sideMenu li a");
+const openIcon = document.querySelector(".fa-bars");
+        const closeIcon = document.querySelector(".fa-times");
+        function openmenu() {
+        if (window.innerWidth <= 768) { // Only trigger on mobile screens
+            sideMenu.style.right = "0"; // Show the menu
+            openIcon.style.display = "none"; // Hide the bars icon
+            closeIcon.style.display = "block"; // Show the close icon
+        }
+    }
+
+    function closemenu() {
+        if (window.innerWidth <= 768) { // Only trigger on mobile screens
+            sideMenu.style.right = "-200px"; // Hide the menu
+            openIcon.style.display = "block"; // Show the bars icon
+            closeIcon.style.display = "none"; // Hide the close icon
+        }
+    }
+navLinks.forEach(link => {
+    link.addEventListener("click", () =>{ closemenu()
+    });
+});
+            </script>
+</body>
+</html>
